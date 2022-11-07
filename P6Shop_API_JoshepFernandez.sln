@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P6Shop_API_JoshepFernandez", "P6Shop_API_JoshepFernandez\P6Shop_API_JoshepFernandez.csproj", "{95132C5B-DF86-461F-9227-908381B1ADED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95132C5B-DF86-461F-9227-908381B1ADED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95132C5B-DF86-461F-9227-908381B1ADED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95132C5B-DF86-461F-9227-908381B1ADED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95132C5B-DF86-461F-9227-908381B1ADED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {143A0F69-9154-4437-B691-3C5BA49997B8}
+	EndGlobalSection
+EndGlobal
