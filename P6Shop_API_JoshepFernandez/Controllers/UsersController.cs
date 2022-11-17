@@ -17,9 +17,13 @@ namespace P6Shop_API_JoshepFernandez.Controllers
     {
         private readonly P6SHOPPINGContext _context;
 
+        public Tools.Crypto MyCrypto { get; set; }
+
         public UsersController(P6SHOPPINGContext context)
         {
             _context = context;
+
+            MyCrypto = new Tools.Crypto();
         }
 
         // GET: api/Users
@@ -34,6 +38,23 @@ namespace P6Shop_API_JoshepFernandez.Controllers
         public async Task<ActionResult<User>> GetUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
+        }
+
+        // GET: api/Users/ValidateLogin?UserName=A&UserPassword=1
+        [HttpGet("ValidateLogin")]
+        public async Task<ActionResult<User>> ValidateLogin(string UserName, string UserPassword)
+        {
+            string ApiLevelEncriptedPassword = MyCrypto.EncriptarEnUnSentido(UserPassword);
+
+            var user = await _context.Users.SingleOrDefaultAsync(e => e.Email == UserName &&
+            e.UserPassword == ApiLevelEncriptedPassword);
 
             if (user == null)
             {
@@ -79,6 +100,10 @@ namespace P6Shop_API_JoshepFernandez.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+            string ApiLevelEncriptedPass = MyCrypto.EncriptarEnUnSentido(user.UserPassword);
+
+            user.UserPassword = ApiLevelEncriptedPass;
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
