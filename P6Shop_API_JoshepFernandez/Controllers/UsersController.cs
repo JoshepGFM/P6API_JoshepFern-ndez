@@ -34,7 +34,7 @@ namespace P6Shop_API_JoshepFernandez.Controllers
             return await _context.Users.ToListAsync();
         }
 
-        // GET: api/Users/GetUserInfo?id=1004
+        // GET: api/Users/GetUserInfo?email=nombre@gmail.com
         [HttpGet("GetUserInfo")]
         public ActionResult<IEnumerable<UserDTO>> GetUserInfo(string email)
         {
